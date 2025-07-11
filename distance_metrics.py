@@ -23,43 +23,56 @@ class DistanceMetrics:
 
     def cosine(self, vec1, vec2):
         vec1, vec2 = self._prepare(vec1, vec2)
-        return 1 - F.cosine_similarity(vec1, vec2).item()
+        distance = 1 - F.cosine_similarity(vec1, vec2).item()
+        return round(distance, 6)
 
     def euclidean(self, vec1, vec2):
         vec1, vec2 = self._prepare(vec1, vec2)
-        return F.pairwise_distance(vec1, vec2, p=2).item()
+        distance = F.pairwise_distance(vec1, vec2, p=2).item()
+        return round(distance, 6)
 
     def manhattan(self, vec1, vec2):
         vec1, vec2 = self._prepare(vec1, vec2)
-        return F.pairwise_distance(vec1, vec2, p=1).item()
+        distance = F.pairwise_distance(vec1, vec2, p=1).item()
+        return round(distance, 6)
 
     def dot(self, vec1, vec2):
-        return torch.dot(vec1.flatten(), vec2.flatten()).item()
+        vec1, vec2 = self._prepare(vec1, vec2)
+        distance = torch.dot(vec1.flatten(), vec2.flatten()).item()
+        return round(distance, 6)
 
     def chebyshev(self, vec1, vec2):
-        return torch.max(torch.abs(vec1 - vec2)).item()
+        vec1, vec2 = self._prepare(vec1, vec2)
+        distance = torch.max(torch.abs(vec1 - vec2)).item()
+        return round(distance, 6)
 
     def minkowski(self, vec1, vec2, p=3):  # p can be adjusted as needed
         vec1, vec2 = self._prepare(vec1, vec2)
-        return F.pairwise_distance(vec1, vec2, p=p).item()
+        distance = F.pairwise_distance(vec1, vec2, p=p).item()
+        return round(distance, 6)
 
     def angular(self, vec1, vec2):
         # Angular distance = arccos(similarity) / π
         vec1, vec2 = self._prepare(vec1, vec2)
         sim = F.cosine_similarity(vec1, vec2).clamp(-1 + 1e-7, 1 - 1e-7)
-        return (torch.acos(sim) / torch.pi).item()
+        distance = (torch.acos(sim) / torch.pi).item()
+        return round(distance, 6)
 
     def hamming(self, vec1, vec2):
         # Assumes binary vectors (0/1), or thresholded
-        return torch.mean((vec1 != vec2).float()).item()
+        vec1, vec2 = self._prepare(vec1, vec2)
+        distance = torch.mean((vec1 != vec2).float()).item()
+        return round(distance, 6)
 
     def jaccard(self, vec1, vec2):
         # Assumes binary vectors (0/1)
+        vec1, vec2 = self._prepare(vec1, vec2)
         intersection = torch.sum((vec1.bool() & vec2.bool()).float())
         union = torch.sum((vec1.bool() | vec2.bool()).float())
         if union == 0:
             return 0.0
-        return 1 - (intersection / union).item()
+        distance = 1 - (intersection / union).item()
+        return round(distance, 6)
 
     def calc_according_to_metric(self, metric, vec1, vec2):
         if not hasattr(self, metric):
