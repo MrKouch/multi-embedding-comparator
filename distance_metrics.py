@@ -37,10 +37,12 @@ class DistanceMetrics:
         return round(distance, 6)
 
     def dot(self, vec1, vec2):
+        vec1, vec2 = self._prepare(vec1, vec2)
         distance = torch.dot(vec1.flatten(), vec2.flatten()).item()
         return round(distance, 6)
 
     def chebyshev(self, vec1, vec2):
+        vec1, vec2 = self._prepare(vec1, vec2)
         distance = torch.max(torch.abs(vec1 - vec2)).item()
         return round(distance, 6)
 
@@ -58,11 +60,13 @@ class DistanceMetrics:
 
     def hamming(self, vec1, vec2):
         # Assumes binary vectors (0/1), or thresholded
+        vec1, vec2 = self._prepare(vec1, vec2)
         distance = torch.mean((vec1 != vec2).float()).item()
         return round(distance, 6)
 
     def jaccard(self, vec1, vec2):
         # Assumes binary vectors (0/1)
+        vec1, vec2 = self._prepare(vec1, vec2)
         intersection = torch.sum((vec1.bool() & vec2.bool()).float())
         union = torch.sum((vec1.bool() | vec2.bool()).float())
         if union == 0:
