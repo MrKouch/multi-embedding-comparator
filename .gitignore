@@ -54,3 +54,6 @@ coverage.xml
 *.swp
 *.bak
 *.tmp
+
+#was added when downloading the package
+*.egg-info/
