@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import streamlit as st
-from distance_metrics import DistanceMetrics
+from embedding_distances.distance_metrics import DistanceMetrics
 from visualization import Visualizations  
 
 st.title("Text similarities")
@@ -9,7 +9,7 @@ first_sentence = st.text_input("First sentence", " ")
 second_sentence = st.text_input("Second sentence", " ")
 sentences = [first_sentence, second_sentence]
 
-option = st.selectbox(
+embedding_type = st.selectbox(
     "Select embedding",
     (
         "all-MiniLM-L6-v2", "all-mpnet-base-v2", "all-distilroberta-v1",
@@ -37,7 +37,7 @@ viz = Visualizations()
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
 if st.button("Run"):
-    model = SentenceTransformer(option)
+    model = SentenceTransformer(embedding_type)
     embeddings = model.encode(sentences)
     
     distance = dm.calc_according_to_metric(distance_metric, embeddings[0], embeddings[1])
