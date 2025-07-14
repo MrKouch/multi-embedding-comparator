@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from sentence_transformers import SentenceTransformer
-from distance_metrics import DistanceMetrics
+from embedding_distances.distance_metrics import DistanceMetrics
 from pydantic import BaseModel
 
 
