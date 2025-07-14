@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added selectbox and button">
-      <change afterPath="$PROJECT_DIR$/embedding_distances/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distance_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/distance_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="workspace" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +19,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -165,11 +158,74 @@
       <option name="project" value="LOCAL‎" />
       <updated>1752248780031</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎-00002" summary="changed many things">
+      <option name="closed" value="true" />
+      <created>1752517521520</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752517521520</updated>
+    </task>
+    <task id="LOCAL‎-00003" summary="added setup.py">
+      <option name="closed" value="true" />
+      <created>1752518760956</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752518760956</updated>
+    </task>
+    <task id="LOCAL‎-00004" summary="something inside the idea files - not sure what that is">
+      <option name="closed" value="true" />
+      <created>1752518789837</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752518789837</updated>
+    </task>
+    <task id="LOCAL‎-00005" summary="added a README file">
+      <option name="closed" value="true" />
+      <created>1752518806223</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752518806223</updated>
+    </task>
+    <task id="LOCAL‎-00006" summary="added *.egg-info/ to gitignore">
+      <option name="closed" value="true" />
+      <created>1752523033731</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752523033731</updated>
+    </task>
+    <task id="LOCAL‎-00007" summary="made app use our distance method">
+      <option name="closed" value="true" />
+      <created>1752523240059</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752523240059</updated>
+    </task>
+    <task id="LOCAL‎-00008" summary="workspace">
+      <option name="closed" value="true" />
+      <created>1752523255275</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752523255275</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added selectbox and button" />
-    <option name="LAST_COMMIT_MESSAGE" value="added selectbox and button" />
+    <MESSAGE value="changed many things" />
+    <MESSAGE value="added setup.py" />
+    <MESSAGE value="something inside the idea files - not sure what that is" />
+    <MESSAGE value="added a README file" />
+    <MESSAGE value="added *.egg-info/ to gitignore" />
+    <MESSAGE value="made app use our distance method" />
+    <MESSAGE value="workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
   </component>
 </project>

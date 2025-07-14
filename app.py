@@ -1,13 +1,13 @@
 from sentence_transformers import SentenceTransformer
 import streamlit as st
 from embedding_distances.distance_metrics import DistanceMetrics
+import embedding_distances.interface as interface
 from visualization import Visualizations  
 
 st.title("Text similarities")
 
 first_sentence = st.text_input("First sentence", " ")
 second_sentence = st.text_input("Second sentence", " ")
-sentences = [first_sentence, second_sentence]
 
 embedding_type = st.selectbox(
     "Select embedding",
@@ -37,13 +37,12 @@ viz = Visualizations()
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
 if st.button("Run"):
-    model = SentenceTransformer(embedding_type)
-    embeddings = model.encode(sentences)
-    
-    distance = dm.calc_according_to_metric(distance_metric, embeddings[0], embeddings[1])
+    distance = interface.calculate_distance(first_sentence, second_sentence, embedding_type, distance_metric)
     st.write("The distance between the embeddings is", distance)
 
     # Only show plot if checkbox is checked
+    model = SentenceTransformer(embedding_type)
+    embeddings = model.encode([first_sentence, second_sentence])
     if show_plot:
         fig = viz.plot_embeddings_2d(embeddings[0], embeddings[1])
         st.plotly_chart(fig)
