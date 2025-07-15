@@ -2,12 +2,35 @@ from sentence_transformers import SentenceTransformer
 import streamlit as st
 from embedding_distances.distance_metrics import DistanceMetrics
 import embedding_distances.interface as interface
-from visualization import Visualizations  
+from visualization import Visualizations
+import pandas as pd
 
 st.title("Text similarities")
 
-first_sentence = st.text_input("First sentence", " ")
-second_sentence = st.text_input("Second sentence", " ")
+st.subheader("Sentence Collector")
+
+# 1. Initialize list in session state
+if "sentences" not in st.session_state:
+    st.session_state.sentences = []
+
+# 2. Input field for new sentence
+new_sentence = st.text_input("Enter a new sentence:")
+
+# 3. Add button to store the sentence
+if st.button("Add Sentence"):
+    if new_sentence.strip():  # Avoid empty inputs
+        st.session_state.sentences.append(new_sentence.strip())
+    else:
+        st.warning("Please enter a valid sentence.")
+
+# 4. Display current list
+st.subheader("Collected Sentences:")
+for idx, sentence in enumerate(st.session_state.sentences, 1):
+    st.write(f"{idx}. {sentence}")
+
+
+# first_sentence = st.text_input("First sentence", " ")
+# second_sentence = st.text_input("Second sentence", " ")
 
 embedding_type = st.selectbox(
     "Select embedding",
@@ -37,13 +60,20 @@ viz = Visualizations()
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
 if st.button("Run"):
-    distance = interface.calculate_distance(first_sentence, second_sentence, embedding_type, distance_metric)
-    st.write("The distance between the embeddings is", distance)
+    unique_text_list = [f"{i+1}. {s}" for i, s in enumerate(st.session_state.sentences)]
+    distance_matrix = interface.calculate_distance_list(
+        st.session_state.sentences, embedding_type, distance_metric
+    )
+
+    distance_table = pd.DataFrame(distance_matrix,
+                                  columns=unique_text_list,
+                                  index=unique_text_list)
+
+    st.table(distance_table)
 
     # Only show plot if checkbox is checked
     model = SentenceTransformer(embedding_type)
-    embeddings = model.encode([first_sentence, second_sentence])
+    embeddings = model.encode(st.session_state.sentences)
     if show_plot:
-        fig = viz.plot_embeddings_2d(embeddings[0], embeddings[1])
+        fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
         st.plotly_chart(fig)
-
