@@ -1,39 +1,28 @@
-from fastapi import FastAPI
-from sentence_transformers import SentenceTransformer
-from embedding_distances.distance_metrics import DistanceMetrics
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from embedding_distances import interface
+import pandas as pd
 
+app = FastAPI()
 
-fastAPI = FastAPI()
+class DistanceRequest(BaseModel):
+    sentences: list
+    model: str = "all-MiniLM-L6-v2"
+    distance_metric: str = "cosine"
 
-@fastAPI.get("/")
+@app.get("/")
 def test():
     return {"hello": "world"}
 
-
-class DistanceRequest(BaseModel):
-    sentence1: str
-    sentence2: str
-    model_choice: str = "all-MiniLM-L6-v2"
-    distance_metric: str = "cosine"
-
-
-@fastAPI.post("/dist")
+@app.post("/dist")
 def calculate_distance(req: DistanceRequest):
-    sentences = [req.sentence1, req.sentence2]
-    model = SentenceTransformer(model_name_or_path=req.model_choice)
-    dm = DistanceMetrics()
-    embeddings = model.encode(sentences)
-    distance = dm.calc_according_to_metric(req.distance_metric, embeddings[0], embeddings[1])
-    
-    return {
-        "sentence1": req.sentence1,
-        "sentence2": req.sentence2,
-        "model_choice": req.model_choice,
-        "distance_metric": req.distance_metric,
-        "distance": distance
-    }
-
-
-
-
+    if len(req.sentences) < 2:
+        raise HTTPException(status_code=400, detail="At least two sentences are required.")
+    embeddings_list = interface.encode_text_list(req.sentences, req.model)
+    distance_matrix = interface.calculate_distance_list(
+        text_list=req.sentences,
+        embeddings_list=embeddings_list,
+        metric=req.distance_metric
+    )
+    df = pd.DataFrame(distance_matrix, columns=req.sentences, index=req.sentences)
+    return df.to_dict()
