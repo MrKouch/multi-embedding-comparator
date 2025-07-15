@@ -19,10 +19,16 @@ def calculate_distance(text1, text2, model_name="all-MiniLM-L6-v2", metric="cosi
     return distance
 
 
-def calculate_distance_list(text_list, model_name="all-MiniLM-L6-v2", metric="cosine"):
-    # Load embedding model
+def encode_text_list(text_list, model_name="all-MiniLM-L6-v2"):
     model = SentenceTransformer(model_name)
     vecs = model.encode(text_list)
+    return vecs
+
+
+def calculate_distance_list(text_list, embeddings_list, metric="cosine"):
+    # Load embedding model
+    # model = SentenceTransformer(model_name)
+    # vecs = model.encode(text_list)
 
     # Calculate distance
     dm = DistanceMetrics()
@@ -31,7 +37,6 @@ def calculate_distance_list(text_list, model_name="all-MiniLM-L6-v2", metric="co
     distance_matrix = [[0 for i in range(len(text_list))] for j in range(len(text_list))]
     for i in range(len(text_list)):
         for j in range(len(text_list)):
-            distance_matrix[i][j] = dm.calc_according_to_metric(metric, vecs[i], vecs[j])
-    # distance = dm.calc_according_to_metric(metric, vec1, vec2)
+            distance_matrix[i][j] = dm.calc_according_to_metric(metric, embeddings_list[i], embeddings_list[j])
     return distance_matrix
 
