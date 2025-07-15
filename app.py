@@ -1,4 +1,3 @@
-from sentence_transformers import SentenceTransformer
 import streamlit as st
 from embedding_distances.distance_metrics import DistanceMetrics
 import embedding_distances.interface as interface
@@ -29,9 +28,6 @@ for idx, sentence in enumerate(st.session_state.sentences, 1):
     st.write(f"{idx}. {sentence}")
 
 
-# first_sentence = st.text_input("First sentence", " ")
-# second_sentence = st.text_input("Second sentence", " ")
-
 embedding_type = st.selectbox(
     "Select embedding",
     (
@@ -55,14 +51,16 @@ distance_metric = st.selectbox(
 
 dm = DistanceMetrics()
 viz = Visualizations()
-# Add this ABOVE the Run button
 
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
 if st.button("Run"):
+    embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
     unique_text_list = [f"{i+1}. {s}" for i, s in enumerate(st.session_state.sentences)]
     distance_matrix = interface.calculate_distance_list(
-        st.session_state.sentences, embedding_type, distance_metric
+        st.session_state.sentences,
+        embeddings,
+        distance_metric
     )
 
     distance_table = pd.DataFrame(distance_matrix,
@@ -72,8 +70,6 @@ if st.button("Run"):
     st.table(distance_table)
 
     # Only show plot if checkbox is checked
-    model = SentenceTransformer(embedding_type)
-    embeddings = model.encode(st.session_state.sentences)
     if show_plot:
         fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
         st.plotly_chart(fig)
