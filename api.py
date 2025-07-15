@@ -10,11 +10,13 @@ fastAPI = FastAPI()
 def test():
     return {"hello": "world"}
 
+
 class DistanceRequest(BaseModel):
     sentence1: str
     sentence2: str
     model_choice: str = "all-MiniLM-L6-v2"
     distance_metric: str = "cosine"
+
 
 @fastAPI.post("/dist")
 def calculate_distance(req: DistanceRequest):

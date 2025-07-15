@@ -2,23 +2,25 @@ import numpy as np
 from sklearn.decomposition import PCA
 import plotly.express as px
 
+
 class Visualizations:
-    def plot_embeddings_2d(self, embedding1, embedding2):
+
+    def plot_embeddings_2d(self, embedding_list, text_list):
         """
         Plot two embedding vectors in 2D using PCA.
 
         Args:
-            embedding1 (array-like): First embedding vector
-            embedding2 (array-like): Second embedding vector
+            embedding_list (list): List of embeddings
+            text_list (list): Corresponding list of sentences
 
         Returns:
             Plotly Figure object
         """
-        embeddings = np.array([embedding1, embedding2])
-        labels = ["Sentence 1", "Sentence 2"]
+        embeddings = np.array(embedding_list)
+        labels = text_list
 
         # Reduce to 2D with PCA
-        pca = PCA(n_components=2)
+        pca = PCA(n_components=len(embedding_list))
         reduced = pca.fit_transform(embeddings)
 
         # Create 2D scatter plot
