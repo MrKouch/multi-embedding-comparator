@@ -5,3 +5,4 @@ pandas
 streamlit
 fastapi
 pydantic
+sentence_transformers
