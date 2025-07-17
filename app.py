@@ -73,3 +73,6 @@ if st.button("Run"):
     if show_plot:
         fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
         st.plotly_chart(fig)
+
+## test: changes from virtual machine
+## test 3
