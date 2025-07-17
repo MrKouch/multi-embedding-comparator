@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="nothing" />
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="nothing">
+      <change afterPath="$PROJECT_DIR$/embedding_distances/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/embedding_distances/hf_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding_distances/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

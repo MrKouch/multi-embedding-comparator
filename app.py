@@ -27,18 +27,17 @@ st.subheader("Collected Sentences:")
 for idx, sentence in enumerate(st.session_state.sentences, 1):
     st.write(f"{idx}. {sentence}")
 
-
+embedding_class = st.selectbox(
+    "Select embedding class",
+    (
+        "HFEmbeddingModel"
+    )
+)
+models_list = interface.EMBEDDING_CLASSES[embedding_class].list_models()
+# models_list = interface.EMBEDDING_CLASSES[embedding_class].models_list
 embedding_type = st.selectbox(
     "Select embedding",
-    (
-        "all-MiniLM-L6-v2", "all-mpnet-base-v2", "all-distilroberta-v1",
-        "paraphrase-MiniLM-L6-v2", "paraphrase-mpnet-base-v2", "nli-roberta-base-v2",
-        "stsb-roberta-large", "paraphrase-multilingual-MiniLM-L12-v2",
-        "distiluse-base-multilingual-cased-v1", "sentence-transformers/LaBSE",
-        "paraphrase-multilingual-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1",
-        "average_word_embeddings_glove.6B.300d", "msmarco-distilbert-base-v2",
-        "instructor-xl", "e5-base", "bge-small-en-v1.5"
-    )
+    models_list
 )
 
 distance_metric = st.selectbox(
@@ -55,8 +54,10 @@ viz = Visualizations()
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
 if st.button("Run"):
-    embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
-    unique_text_list = [f"{i+1}. {s}" for i, s in enumerate(st.session_state.sentences)]
+    # embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
+    embeddings = interface.encode_text_list(text_list=st.session_state.sentences, embedding_class=embedding_class,
+                                            model_id=embedding_type)
+    unique_text_list = [f"{i + 1}. {s}" for i, s in enumerate(st.session_state.sentences)]
     distance_matrix = interface.calculate_distance_list(
         st.session_state.sentences,
         embeddings,
