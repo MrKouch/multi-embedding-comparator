@@ -6,12 +6,7 @@ streamlit
 fastapi
 pydantic
 sentence_transformers
-<<<<<<< HEAD
 plotly
-=======
-plotly
->>>>>>> 7fc58f2 (check changes from virtual machine)
-
 setuptools
 requests
 scikit-learn

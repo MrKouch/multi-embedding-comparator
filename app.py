@@ -3,15 +3,6 @@ from embedding_distances.distance_metrics import DistanceMetrics
 import embedding_distances.interface as interface
 from visualization import Visualizations
 import pandas as pd
-import visualization
-
-# visualization.py
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
-from sklearn.decomposition import PCA
-
-
 
 st.title("Text similarities")
 
@@ -20,9 +11,6 @@ st.subheader("Sentence Collector")
 # 1. Initialize list in session state
 if "sentences" not in st.session_state:
     st.session_state.sentences = []
-
-if "selected_index" not in st.session_state:
-    st.session_state.selected_index = 0
 
 # 2. Input field for new sentence
 new_sentence = st.text_input("Enter a new sentence:")
@@ -78,12 +66,6 @@ viz = Visualizations()
 
 show_plot = st.checkbox("Show embedding visualization (2D)")
 
-selected_index = st.selectbox(
-    "Select a reference sentence to compare distances against:",
-    options=list(range(len(st.session_state.sentences))),
-    format_func=lambda i: f"{i + 1}. {st.session_state.sentences[i]}"
-)
-
 if st.button("Run"):
     # embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
     embeddings = interface.encode_text_list(text_list=st.session_state.sentences, embedding_class=embedding_class,
@@ -103,21 +85,6 @@ if st.button("Run"):
 
     # Only show plot if checkbox is checked
     if show_plot:
-        # fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
-        # st.plotly_chart(fig)
-        # st.selectbox(
-        #     "Select a reference sentence to compare distances against:",
-        #     options=list(range(len(st.session_state.sentences))),
-        #     format_func=lambda i: f"{i + 1}. {st.session_state.sentences[i]}",
-        #     key="selected_index"
-        # )
-        # selected_index = st.session_state.selected_index
-
-        fig = visualization.plot_embeddings_2d_with_distances(
-            list(embeddings),
-            st.session_state.sentences,
-            highlight_index=selected_index
-        )
+        fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
         st.plotly_chart(fig)
-
 
