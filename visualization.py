@@ -1,6 +1,8 @@
 import numpy as np
+import pandas as pd
 from sklearn.decomposition import PCA
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 class Visualizations:
@@ -33,3 +35,33 @@ class Visualizations:
         )
         fig.update_traces(marker=dict(size=12))
         return fig
+
+    def bars_graph(self, distance_tables, text_list):
+        all_data = []
+
+        for i, table in enumerate(distance_tables):
+            distances = table.iloc[0].tolist()
+            embedding_name = getattr(table, "name", f"Embedding {i+1}")  # Use name if available
+            for text, dist in zip(text_list, distances):
+                all_data.append({
+                    'Text': text,
+                    'Distance': dist,
+                    'Embedding': embedding_name
+                })
+
+        df = pd.DataFrame(all_data)
+
+        fig = px.bar(
+            df,
+            x='Text',
+            y='Distance',
+            color='Embedding',
+            barmode='group',
+            title='Distance from Anchor Sentence by Embedding Method'
+        )
+
+        fig.update_layout(xaxis_tickangle=-45)
+        return fig
+
+
+###
