@@ -1,6 +1,8 @@
 import numpy as np
+import pandas as pd
 from sklearn.decomposition import PCA
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 class Visualizations:
@@ -33,3 +35,13 @@ class Visualizations:
         )
         fig.update_traces(marker=dict(size=12))
         return fig
+    
+    def bars_graph(self, distance_matrix, text_list):
+        distances = distance_matrix.iloc[0].tolist()
+        df = pd.DataFrame({
+            'texts': text_list,
+            'distance': distances
+        })
+        fig = px.bar(df, x='texts', y='distance')
+        return fig
+
