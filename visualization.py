@@ -37,12 +37,41 @@ class Visualizations:
         fig.update_traces(marker=dict(size=12))
         return fig
 
-    def bars_graph(self, distance_tables, embedding_names ,text_list):
+    # def bars_graph(self, distance_tables, embedding_names ,text_list):
+    #     all_data = []
+    #
+    #     for i, table in enumerate(distance_tables):
+    #         distances = table.iloc[0].tolist()
+    #         embedding_name = embedding_names[i]
+    #         for text, dist in zip(text_list, distances):
+    #             all_data.append({
+    #                 'Text': text,
+    #                 'Distance': dist,
+    #                 'Embedding': embedding_name
+    #             })
+    #
+    #     df = pd.DataFrame(all_data)
+    #
+    #     fig = px.bar(
+    #         df,
+    #         x='Text',
+    #         y='Distance',
+    #         color='Embedding',
+    #         barmode='group',
+    #         title='Distance from Anchor Sentence by Embedding Method'
+    #     )
+    #
+    #     fig.update_layout(xaxis_tickangle=-45)
+    #     return fig
+
+
+    def bars_graph(self, distance_tables, embedding_names, text_list, anchor_index=0):
         all_data = []
 
         for i, table in enumerate(distance_tables):
-            distances = table.iloc[0].tolist()
+            distances = table.iloc[anchor_index].tolist()
             embedding_name = embedding_names[i]
+
             for text, dist in zip(text_list, distances):
                 all_data.append({
                     'Text': text,
@@ -58,7 +87,7 @@ class Visualizations:
             y='Distance',
             color='Embedding',
             barmode='group',
-            title='Distance from Anchor Sentence by Embedding Method'
+            title=f'Distance from Sentence {anchor_index + 1}: "{text_list[anchor_index]}"'
         )
 
         fig.update_layout(xaxis_tickangle=-45)

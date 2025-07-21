@@ -108,14 +108,13 @@ if st.button("Run"):
         table = st.table(distance_table)
         tables.append(distance_table)
         # Only show plot if checkbox is checked
-        # Only show plot if checkbox is checked
         if show_plot:
             # fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
             # st.plotly_chart(fig)
             fig = visualization.plot_embeddings_2d_with_distances(embedding, st.session_state.sentences, highlight_index=selected_index)
             st.plotly_chart(fig)
     if show_bars:
-        fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options, text_list=st.session_state.sentences)
+        fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options, text_list=st.session_state.sentences, anchor_index=selected_index)
         st.plotly_chart(fig)
     
 
