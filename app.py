@@ -3,6 +3,7 @@ from embedding_distances.distance_metrics import DistanceMetrics
 import embedding_distances.interface as interface
 from visualization import Visualizations
 import pandas as pd
+import visualization
 
 st.title("Text similarities")
 
@@ -79,6 +80,12 @@ viz = Visualizations()
 show_plot = st.checkbox("Show embedding visualization (2D)")
 show_bars = st.checkbox("Show bars visualization (2D)")
 
+selected_index = st.selectbox(
+    "Select a reference sentence to compare distances against:",
+    options=list(range(len(st.session_state.sentences))),
+    format_func=lambda i: f"{i + 1}. {st.session_state.sentences[i]}"
+)
+
 if st.button("Run"):
     tables = []
     embeddings = []
@@ -100,10 +107,13 @@ if st.button("Run"):
 
         table = st.table(distance_table)
         tables.append(distance_table)
-    # Only show plot if checkbox is checked
-    if show_plot:
-        fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
-        st.plotly_chart(fig)
+        # Only show plot if checkbox is checked
+        # Only show plot if checkbox is checked
+        if show_plot:
+            # fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
+            # st.plotly_chart(fig)
+            fig = visualization.plot_embeddings_2d_with_distances(embedding, st.session_state.sentences, highlight_index=selected_index)
+            st.plotly_chart(fig)
     if show_bars:
         fig = viz.bars_graph(distance_tables=tables, text_list=st.session_state.sentences)
         st.plotly_chart(fig)
