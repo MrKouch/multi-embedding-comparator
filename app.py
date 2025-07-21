@@ -115,7 +115,7 @@ if st.button("Run"):
             fig = visualization.plot_embeddings_2d_with_distances(embedding, st.session_state.sentences, highlight_index=selected_index)
             st.plotly_chart(fig)
     if show_bars:
-        fig = viz.bars_graph(distance_tables=tables, text_list=st.session_state.sentences)
+        fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options, text_list=st.session_state.sentences)
         st.plotly_chart(fig)
     
 

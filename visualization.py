@@ -37,12 +37,12 @@ class Visualizations:
         fig.update_traces(marker=dict(size=12))
         return fig
 
-    def bars_graph(self, distance_tables, text_list):
+    def bars_graph(self, distance_tables, embedding_names ,text_list):
         all_data = []
 
         for i, table in enumerate(distance_tables):
             distances = table.iloc[0].tolist()
-            embedding_name = getattr(table, "name", f"Embedding {i+1}")  # Use name if available
+            embedding_name = embedding_names[i]
             for text, dist in zip(text_list, distances):
                 all_data.append({
                     'Text': text,
