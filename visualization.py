@@ -1,6 +1,11 @@
 import numpy as np
+import pandas as pd
 from sklearn.decomposition import PCA
 import plotly.express as px
+import plotly.graph_objects as go
+from sklearn.decomposition import PCA
+from embedding_distances.distance_metrics import DistanceMetrics
+
 
 
 class Visualizations:
@@ -33,3 +38,112 @@ class Visualizations:
         )
         fig.update_traces(marker=dict(size=12))
         return fig
+
+
+def plot_embeddings_2d_with_lines(vectors, labels, highlight_index=None):
+    # Apply PCA
+    pca = PCA(n_components=2)
+    coords = pca.fit_transform(vectors)
+
+    df = pd.DataFrame(coords, columns=["x", "y"])
+    df["label"] = labels
+
+    # Base scatter plot
+    fig = px.scatter(df, x="x", y="y", text="label")
+
+    # Highlight the selected point
+    if highlight_index is not None:
+        selected_point = df.iloc[highlight_index]
+
+        # Add red dot for selected point
+        fig.add_trace(go.Scatter(
+            x=[selected_point["x"]],
+            y=[selected_point["y"]],
+            mode="markers",
+            marker=dict(color="red", size=12),
+            name="Selected",
+            showlegend=True
+        ))
+
+        # Add lines from selected point to all others
+        for i, row in df.iterrows():
+            if i == highlight_index:
+                continue  # skip self
+            fig.add_trace(go.Scatter(
+                x=[selected_point["x"], row["x"]],
+                y=[selected_point["y"], row["y"]],
+                mode="lines",
+                line=dict(color="gray", width=1),
+                hoverinfo="skip",
+                showlegend=False
+            ))
+
+    fig.update_traces(textposition='top center')
+    fig.update_layout(title="2D PCA Embedding Visualization")
+
+    return fig
+
+
+def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, distance_metric="cosine"):
+    # Apply PCA
+    dm = DistanceMetrics()
+    pca = PCA(n_components=2)
+    coords = pca.fit_transform(vectors)
+
+    df = pd.DataFrame(coords, columns=["x", "y"])
+    df["label"] = labels
+
+    fig = px.scatter(df, x="x", y="y", text="label")
+
+    if highlight_index is not None:
+        selected = df.iloc[highlight_index]
+        selected_vec = coords[highlight_index]
+
+        # Add red highlight for the selected point
+        fig.add_trace(go.Scatter(
+            x=[selected["x"]],
+            y=[selected["y"]],
+            mode="markers",
+            marker=dict(color="red", size=12),
+            name="Selected",
+            showlegend=True
+        ))
+
+        # Add lines with distance labels
+        for i, row in df.iterrows():
+            if i == highlight_index:
+                continue
+
+            # Compute distance
+            target_vec = coords[i]
+            dist = dm.calc_according_to_metric(distance_metric, selected_vec, target_vec)
+
+            # Midpoint for label
+            mid_x = (selected["x"] + row["x"]) / 2
+            mid_y = (selected["y"] + row["y"]) / 2
+
+            # Line trace
+            fig.add_trace(go.Scatter(
+                x=[selected["x"], row["x"]],
+                y=[selected["y"], row["y"]],
+                mode="lines",
+                line=dict(color="gray", width=1),
+                showlegend=False,
+                hoverinfo="skip"
+            ))
+
+            # Distance label trace (at midpoint)
+            fig.add_trace(go.Scatter(
+                x=[mid_x],
+                y=[mid_y],
+                mode="text",
+                text=[f"{dist:.2f}"],
+                textposition="middle center",
+                showlegend=False,
+                hoverinfo="skip"
+            ))
+
+    fig.update_traces(textposition='top center')
+    fig.update_layout(title="2D PCA Embedding Visualization")
+    return fig
+

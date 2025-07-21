@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added a base class">
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added delete button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embedding_distances/hf_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/hf_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embedding_distances/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +333,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1752781237005</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL‎-00021" summary="added delete button">
+      <option name="closed" value="true" />
+      <created>1753105804633</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL‎-00021" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753105804633</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -359,6 +365,7 @@
     <MESSAGE value="improved api" />
     <MESSAGE value="nothing" />
     <MESSAGE value="added a base class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a base class" />
+    <MESSAGE value="added delete button" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete button" />
   </component>
 </project>
