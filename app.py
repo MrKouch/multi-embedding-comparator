@@ -23,14 +23,27 @@ if st.button("Add Sentence"):
         st.warning("Please enter a valid sentence.")
 
 # 4. Display current list
+# st.subheader("Collected Sentences:")
+# for idx, sentence in enumerate(st.session_state.sentences, 1):
+#     st.write(f"{idx}. {sentence}")
+
+# 4. Display current list with delete buttons
 st.subheader("Collected Sentences:")
-for idx, sentence in enumerate(st.session_state.sentences, 1):
-    st.write(f"{idx}. {sentence}")
+for idx, sentence in enumerate(st.session_state.sentences):
+    col1, col2 = st.columns([8, 1])
+    with col1:
+        st.write(f"{idx + 1}. {sentence}")
+    with col2:
+        if st.button("❌", key=f"delete_{idx}"):
+            st.session_state.sentences.pop(idx)
+            st.rerun()
+
 
 embedding_class = st.selectbox(
     "Select embedding class",
     (
-        "HFEmbeddingModel"
+        # "HFEmbeddingModel"
+        interface.EMBEDDING_CLASSES.keys()
     )
 )
 models_list = interface.EMBEDDING_CLASSES[embedding_class].list_models()
@@ -75,5 +88,3 @@ if st.button("Run"):
         fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
         st.plotly_chart(fig)
 
-## test: changes from virtual machine
-## test 5
