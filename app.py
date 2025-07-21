@@ -105,6 +105,7 @@ if st.button("Run"):
                                     columns=unique_text_list,
                                     index=unique_text_list)
 
+        st.subheader(f"{embedding_option}")
         table = st.table(distance_table)
         tables.append(distance_table)
         # Only show plot if checkbox is checked
