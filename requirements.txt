@@ -1,9 +1,14 @@
-streamlit~=1.46.1
-numpy~=1.26.0
-torch~=2.7.1
+streamlit
+numpy
+torch
 pandas
 streamlit
 fastapi
 pydantic
 sentence_transformers
 plotly
+setuptools
+requests
+scikit-learn
+google~=3.0.0
+langchain

@@ -23,14 +23,27 @@ if st.button("Add Sentence"):
         st.warning("Please enter a valid sentence.")
 
 # 4. Display current list
+# st.subheader("Collected Sentences:")
+# for idx, sentence in enumerate(st.session_state.sentences, 1):
+#     st.write(f"{idx}. {sentence}")
+
+# 4. Display current list with delete buttons
 st.subheader("Collected Sentences:")
-for idx, sentence in enumerate(st.session_state.sentences, 1):
-    st.write(f"{idx}. {sentence}")
+for idx, sentence in enumerate(st.session_state.sentences):
+    col1, col2 = st.columns([8, 1])
+    with col1:
+        st.write(f"{idx + 1}. {sentence}")
+    with col2:
+        if st.button("❌", key=f"delete_{idx}"):
+            st.session_state.sentences.pop(idx)
+            st.rerun()
+
 
 embedding_class = st.selectbox(
     "Select embedding class",
     (
-        "HFEmbeddingModel"
+        # "HFEmbeddingModel"
+        interface.EMBEDDING_CLASSES.keys()
     )
 )
 models_list = interface.EMBEDDING_CLASSES[embedding_class].list_models()
@@ -67,14 +80,17 @@ show_plot = st.checkbox("Show embedding visualization (2D)")
 show_bars = st.checkbox("Show bars visualization (2D)")
 
 if st.button("Run"):
+    tables = []
+    embeddings = []
     for embedding_option in embedding_options:
         # embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
-        embeddings = interface.encode_text_list(text_list=st.session_state.sentences, embedding_class=embedding_class,
+        embedding = interface.encode_text_list(text_list=st.session_state.sentences, embedding_class=embedding_class,
                                             model_id=embedding_option)
+        embeddings.append(embedding)
         unique_text_list = [f"{i + 1}. {s}" for i, s in enumerate(st.session_state.sentences)]
         distance_matrix = interface.calculate_distance_list(
             st.session_state.sentences,
-            embeddings,
+            embedding,
             distance_metric
         )
 
@@ -82,14 +98,15 @@ if st.button("Run"):
                                     columns=unique_text_list,
                                     index=unique_text_list)
 
-        st.table(distance_table)
-        # Only show plot if checkbox is checked
-        if show_plot:
-            fig = viz.plot_embeddings_2d(list(embeddings), st.session_state.sentences)
-            st.plotly_chart(fig)
-        if show_bars:
-            fig = viz.bars_graph(distance_matrix=distance_table, text_list=st.session_state.sentences)
-            st.plotly_chart(fig)
+        table = st.table(distance_table)
+        tables.append(distance_table)
+    # Only show plot if checkbox is checked
+    if show_plot:
+        fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
+        st.plotly_chart(fig)
+    if show_bars:
+        fig = viz.bars_graph(distance_tables=tables, text_list=st.session_state.sentences)
+        st.plotly_chart(fig)
     
 
     

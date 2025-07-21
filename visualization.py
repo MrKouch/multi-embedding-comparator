@@ -35,13 +35,32 @@ class Visualizations:
         )
         fig.update_traces(marker=dict(size=12))
         return fig
-    
-    def bars_graph(self, distance_matrix, text_list):
-        distances = distance_matrix.iloc[0].tolist()
-        df = pd.DataFrame({
-            'texts': text_list,
-            'distance': distances
-        })
-        fig = px.bar(df, x='texts', y='distance')
+
+    def bars_graph(self, distance_tables, text_list):
+        all_data = []
+
+        for i, table in enumerate(distance_tables):
+            distances = table.iloc[0].tolist()
+            embedding_name = getattr(table, "name", f"Embedding {i+1}")  # Use name if available
+            for text, dist in zip(text_list, distances):
+                all_data.append({
+                    'Text': text,
+                    'Distance': dist,
+                    'Embedding': embedding_name
+                })
+
+        df = pd.DataFrame(all_data)
+
+        fig = px.bar(
+            df,
+            x='Text',
+            y='Distance',
+            color='Embedding',
+            barmode='group',
+            title='Distance from Anchor Sentence by Embedding Method'
+        )
+
+        fig.update_layout(xaxis_tickangle=-45)
         return fig
+
 

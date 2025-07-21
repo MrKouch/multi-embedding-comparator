@@ -21,6 +21,7 @@ def calculate_distance(text1, text2, model_name="all-MiniLM-L6-v2", metric="cosi
 
 EMBEDDING_CLASSES = {
     "HFEmbeddingModel": HFEmbeddingModel,
+    # "GeminiEmbeddingModel": GeminiEmbeddingModel,
     # "OpenAIEmbeddingModel": OpenAIEmbeddingModel,
     # "VertexAIEmbeddingModel": VertexAIEmbeddingModel,
     # Add others here
