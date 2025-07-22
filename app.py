@@ -49,11 +49,10 @@ embedding_class = st.selectbox(
 )
 models_list = interface.EMBEDDING_CLASSES[embedding_class].list_models()
 # models_list = interface.EMBEDDING_CLASSES[embedding_class].models_list
-embedding_type = st.selectbox(
-    "Select embedding",
-    models_list
-)
-
+# embedding_type = st.selectbox(
+#     "Select embedding",
+#     models_list
+# )
 embedding_options = st.multiselect(
     "Select desired embedding options",
     ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "all-distilroberta-v1",
@@ -77,13 +76,19 @@ distance_metric = st.selectbox(
 dm = DistanceMetrics()
 viz = Visualizations()
 
-show_plot = st.checkbox("Show embedding visualization (2D)")
-show_bars = st.checkbox("Show bars visualization (2D)")
+show_plot = st.checkbox("Show embedding visualization (2D)",
+                        help="2D PCA of the sentences, "
+                             "shown with the original distance between the reference sentence to the others. "
+                             "shows one graph for each chosen embedding type")
+show_bars = st.checkbox("Show bars visualization (2D)",
+                        help="Shows the distance between the reference sentence to all the others "
+                             "using bars graph. shows one graph for each chosen embedding type")
 
 selected_index = st.selectbox(
     "Select a reference sentence to compare distances against:",
     options=list(range(len(st.session_state.sentences))),
-    format_func=lambda i: f"{i + 1}. {st.session_state.sentences[i]}"
+    format_func=lambda i: f"{i + 1}. {st.session_state.sentences[i]}",
+    help="The sentence from which the distances to all other sentences will be measured "
 )
 
 if st.button("Run"):

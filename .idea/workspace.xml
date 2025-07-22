@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added caption to visualization">
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="nothing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -404,7 +404,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753123160256</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL‎-00030" summary="nothing">
+      <option name="closed" value="true" />
+      <created>1753205034453</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL‎-00030" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753205034453</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -425,7 +433,6 @@
     <MESSAGE value="added pandas to requirements" />
     <MESSAGE value="added idea to gitignore" />
     <MESSAGE value="improved api" />
-    <MESSAGE value="nothing" />
     <MESSAGE value="added a base class" />
     <MESSAGE value="added delete button" />
     <MESSAGE value="added spider plot" />
@@ -433,6 +440,7 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="added the option to choose main sentence in bars" />
     <MESSAGE value="added caption to visualization" />
-    <option name="LAST_COMMIT_MESSAGE" value="added caption to visualization" />
+    <MESSAGE value="nothing" />
+    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
   </component>
 </project>
