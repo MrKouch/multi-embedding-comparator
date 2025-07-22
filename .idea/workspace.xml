@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added the option to choose main sentence in bars">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added caption to visualization">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,11 +396,18 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753123014292</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL‎-00029" summary="added caption to visualization">
+      <option name="closed" value="true" />
+      <created>1753123160256</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL‎-00029" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753123160256</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added selectbox and button" />
     <MESSAGE value="changed many things" />
     <MESSAGE value="added setup.py" />
     <MESSAGE value="something inside the idea files - not sure what that is" />
@@ -424,6 +432,7 @@
     <MESSAGE value="merge attempt" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="added the option to choose main sentence in bars" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the option to choose main sentence in bars" />
+    <MESSAGE value="added caption to visualization" />
+    <option name="LAST_COMMIT_MESSAGE" value="added caption to visualization" />
   </component>
 </project>
