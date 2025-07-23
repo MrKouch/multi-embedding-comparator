@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added info">
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="made labels the numbers and not the sentences">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
@@ -421,11 +421,18 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753206148956</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL‎-00032" summary="made labels the numbers and not the sentences">
+      <option name="closed" value="true" />
+      <created>1753284112572</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753284112572</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added setup.py" />
     <MESSAGE value="something inside the idea files - not sure what that is" />
     <MESSAGE value="added a README file" />
     <MESSAGE value="added *.egg-info/ to gitignore" />
@@ -450,6 +457,7 @@
     <MESSAGE value="added caption to visualization" />
     <MESSAGE value="nothing" />
     <MESSAGE value="added info" />
-    <option name="LAST_COMMIT_MESSAGE" value="added info" />
+    <MESSAGE value="made labels the numbers and not the sentences" />
+    <option name="LAST_COMMIT_MESSAGE" value="made labels the numbers and not the sentences" />
   </component>
 </project>

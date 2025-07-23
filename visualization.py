@@ -87,7 +87,7 @@ class Visualizations:
             y='Distance',
             color='Embedding',
             barmode='group',
-            title=f'Distance from Sentence {anchor_index + 1}: "{text_list[anchor_index]}"'
+            title=f'Distance from Sentence'# {anchor_index + 1}: "{text_list[anchor_index]}"'
         )
 
         fig.update_layout(xaxis_tickangle=-45)

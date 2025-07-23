@@ -108,8 +108,8 @@ if st.button("Run"):
         )
 
         distance_table = pd.DataFrame(distance_matrix,
-                                    columns=unique_text_list,
-                                    index=unique_text_list)
+                                    columns=labels,
+                                    index=labels)
 
         st.subheader(f"{embedding_option}")
         table = st.table(distance_table)
