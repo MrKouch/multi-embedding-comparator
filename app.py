@@ -91,6 +91,7 @@ selected_index = st.selectbox(
     help="The sentence from which the distances to all other sentences will be measured "
 )
 
+labels = [str(i + 1) for i in range(len(st.session_state.sentences))]
 if st.button("Run"):
     tables = []
     embeddings = []
@@ -117,10 +118,13 @@ if st.button("Run"):
         if show_plot:
             # fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
             # st.plotly_chart(fig)
-            fig = visualization.plot_embeddings_2d_with_distances(embedding, st.session_state.sentences, highlight_index=selected_index)
+            fig = visualization.plot_embeddings_2d_with_distances(embedding, labels,
+                                                                  highlight_index=selected_index,
+                                                                  hover_texts=st.session_state.sentences)
             st.plotly_chart(fig)
     if show_bars:
-        fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options, text_list=st.session_state.sentences, anchor_index=selected_index)
+        fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options,
+                             text_list=labels, anchor_index=selected_index)
         st.plotly_chart(fig)
     
 

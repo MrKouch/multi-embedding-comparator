@@ -94,7 +94,7 @@ class Visualizations:
         return fig
 
 
-def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, distance_metric="cosine"):
+def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, distance_metric="cosine", hover_texts=None):
     # Apply PCA
     dm = DistanceMetrics()
     pca = PCA(n_components=2)
@@ -102,8 +102,9 @@ def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, dis
 
     df = pd.DataFrame(coords, columns=["x", "y"])
     df["label"] = labels
+    df["hover"] = hover_texts if hover_texts else labels  # fallback to labels if no hover_texts
 
-    fig = px.scatter(df, x="x", y="y", text="label")
+    fig = px.scatter(df, x="x", y="y", text="label", hover_name="hover")
 
     if highlight_index is not None:
         selected = df.iloc[highlight_index]
