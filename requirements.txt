@@ -10,5 +10,4 @@ plotly
 setuptools
 requests
 scikit-learn
-google~=3.0.0
 langchain

@@ -108,7 +108,7 @@ def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, dis
 
     if highlight_index is not None:
         selected = df.iloc[highlight_index]
-        selected_vec = coords[highlight_index]
+        selected_vec = vectors[highlight_index]
 
         # Add red highlight for the selected point
         fig.add_trace(go.Scatter(
@@ -126,7 +126,7 @@ def plot_embeddings_2d_with_distances(vectors, labels, highlight_index=None, dis
                 continue
 
             # Compute distance
-            target_vec = coords[i]
+            target_vec = vectors[i]
             dist = dm.calc_according_to_metric(distance_metric, selected_vec, target_vec)
 
             # Midpoint for label
