@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="made labels the numbers and not the sentences">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="made labels the numbers and not the sentences - table">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,11 +427,18 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753284112572</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL‎-00033" summary="made labels the numbers and not the sentences - table">
+      <option name="closed" value="true" />
+      <created>1753285111033</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL‎-00033" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753285111033</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="something inside the idea files - not sure what that is" />
     <MESSAGE value="added a README file" />
     <MESSAGE value="added *.egg-info/ to gitignore" />
     <MESSAGE value="made app use our distance method" />
@@ -458,6 +463,7 @@
     <MESSAGE value="nothing" />
     <MESSAGE value="added info" />
     <MESSAGE value="made labels the numbers and not the sentences" />
-    <option name="LAST_COMMIT_MESSAGE" value="made labels the numbers and not the sentences" />
+    <MESSAGE value="made labels the numbers and not the sentences - table" />
+    <option name="LAST_COMMIT_MESSAGE" value="made labels the numbers and not the sentences - table" />
   </component>
 </project>

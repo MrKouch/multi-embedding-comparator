@@ -39,7 +39,6 @@ for idx, sentence in enumerate(st.session_state.sentences):
             st.session_state.sentences.pop(idx)
             st.rerun()
 
-
 embedding_class = st.selectbox(
     "Select embedding class",
     (
@@ -56,13 +55,13 @@ models_list = interface.EMBEDDING_CLASSES[embedding_class].list_models()
 embedding_options = st.multiselect(
     "Select desired embedding options",
     ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "all-distilroberta-v1",
-                "paraphrase-MiniLM-L6-v2", "paraphrase-mpnet-base-v2", "nli-roberta-base-v2",
-                "stsb-roberta-large", "paraphrase-multilingual-MiniLM-L12-v2",
-                "distiluse-base-multilingual-cased-v1", "sentence-transformers/LaBSE",
-                "paraphrase-multilingual-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1",
-                "average_word_embeddings_glove.6B.300d", "msmarco-distilbert-base-v2",
-                "instructor-xl", "e5-base", "bge-small-en-v1.5"],
-                default="all-MiniLM-L6-v2"
+     "paraphrase-MiniLM-L6-v2", "paraphrase-mpnet-base-v2", "nli-roberta-base-v2",
+     "stsb-roberta-large", "paraphrase-multilingual-MiniLM-L12-v2",
+     "distiluse-base-multilingual-cased-v1", "sentence-transformers/LaBSE",
+     "paraphrase-multilingual-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1",
+     "average_word_embeddings_glove.6B.300d", "msmarco-distilbert-base-v2",
+     "instructor-xl", "e5-base", "bge-small-en-v1.5"],
+    default="all-MiniLM-L6-v2"
 )
 
 distance_metric = st.selectbox(
@@ -76,6 +75,8 @@ distance_metric = st.selectbox(
 dm = DistanceMetrics()
 viz = Visualizations()
 
+show_distance_table = st.checkbox("Show distance table",
+                                  help="Table that shows the distance itself between every two sentences")
 show_plot = st.checkbox("Show embedding visualization (2D)",
                         help="2D PCA of the sentences, "
                              "shown with the original distance between the reference sentence to the others. "
@@ -98,7 +99,7 @@ if st.button("Run"):
     for embedding_option in embedding_options:
         # embeddings = interface.encode_text_list(st.session_state.sentences, model_name=embedding_type)
         embedding = interface.encode_text_list(text_list=st.session_state.sentences, embedding_class=embedding_class,
-                                            model_id=embedding_option)
+                                               model_id=embedding_option)
         embeddings.append(embedding)
         unique_text_list = [f"{i + 1}. {s}" for i, s in enumerate(st.session_state.sentences)]
         distance_matrix = interface.calculate_distance_list(
@@ -108,11 +109,12 @@ if st.button("Run"):
         )
 
         distance_table = pd.DataFrame(distance_matrix,
-                                    columns=labels,
-                                    index=labels)
+                                      columns=labels,
+                                      index=labels)
 
         st.subheader(f"{embedding_option}")
-        table = st.table(distance_table)
+        if show_distance_table:
+            table = st.table(distance_table)
         tables.append(distance_table)
         # Only show plot if checkbox is checked
         if show_plot:
@@ -126,6 +128,5 @@ if st.button("Run"):
         fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options,
                              text_list=labels, anchor_index=selected_index)
         st.plotly_chart(fig)
-    
 
 ###
