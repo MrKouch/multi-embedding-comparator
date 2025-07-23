@@ -111,8 +111,8 @@ if st.button("Run"):
         distance_table = pd.DataFrame(distance_matrix,
                                       columns=labels,
                                       index=labels)
-
-        st.subheader(f"{embedding_option}")
+        if show_distance_table or show_bars:
+            st.subheader(f"{embedding_option}")
         if show_distance_table:
             table = st.table(distance_table)
         tables.append(distance_table)
