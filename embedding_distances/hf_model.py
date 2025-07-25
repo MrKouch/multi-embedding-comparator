@@ -23,4 +23,4 @@ class HFEmbeddingModel(EmbeddingModel):
                 "distiluse-base-multilingual-cased-v1", "sentence-transformers/LaBSE",
                 "paraphrase-multilingual-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1",
                 "average_word_embeddings_glove.6B.300d", "msmarco-distilbert-base-v2",
-                "instructor-xl", "e5-base", "bge-small-en-v1.5"]
+                "instructor-xl", "bge-small-en-v1.5", "sentence-transformers/LaBSE"]

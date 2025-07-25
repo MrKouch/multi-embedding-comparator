@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="nothing">
-      <change afterPath="$PROJECT_DIR$/embedding_distances/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/embedding_distances/hf_model.py" afterDir="false" />
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="removed e5 from embeddings options (requires token)">
+      <change afterPath="$PROJECT_DIR$/openai_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/embedding_distances/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Altar/uni_assingments/Embeddings Demo Project/multi-embedding-comparator&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Altar/uni_assingments/Embeddings Demo Project/work-with-OTT-QA"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Altar\uni_assingments\Embeddings Demo Project\multi-embedding-comparator" />
@@ -327,19 +327,162 @@
       <option name="project" value="LOCAL‎" />
       <updated>1752774737852</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL‎-00020" summary="added a base class">
+      <option name="closed" value="true" />
+      <created>1752781237005</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1752781237005</updated>
+    </task>
+    <task id="LOCAL‎-00021" summary="added delete button">
+      <option name="closed" value="true" />
+      <created>1753105804633</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL‎-00021" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753105804633</updated>
+    </task>
+    <task id="LOCAL‎-00022" summary="added spider plot">
+      <option name="closed" value="true" />
+      <created>1753110019923</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL‎-00022" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753110019923</updated>
+    </task>
+    <task id="LOCAL‎-00023" summary="added spider plot">
+      <option name="closed" value="true" />
+      <created>1753110784912</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL‎-00023" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753110784912</updated>
+    </task>
+    <task id="LOCAL‎-00024" summary="added spider plot">
+      <option name="closed" value="true" />
+      <created>1753111000219</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL‎-00024" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753111000219</updated>
+    </task>
+    <task id="LOCAL‎-00025" summary="merge attempt">
+      <option name="closed" value="true" />
+      <created>1753111204096</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL‎-00025" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753111204096</updated>
+    </task>
+    <task id="LOCAL‎-00026" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1753121884666</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL‎-00026" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753121884666</updated>
+    </task>
+    <task id="LOCAL‎-00027" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1753121930160</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL‎-00027" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753121930160</updated>
+    </task>
+    <task id="LOCAL‎-00028" summary="added the option to choose main sentence in bars">
+      <option name="closed" value="true" />
+      <created>1753123014292</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL‎-00028" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753123014292</updated>
+    </task>
+    <task id="LOCAL‎-00029" summary="added caption to visualization">
+      <option name="closed" value="true" />
+      <created>1753123160256</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL‎-00029" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753123160256</updated>
+    </task>
+    <task id="LOCAL‎-00030" summary="nothing">
+      <option name="closed" value="true" />
+      <created>1753205034453</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL‎-00030" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753205034453</updated>
+    </task>
+    <task id="LOCAL‎-00031" summary="added info">
+      <option name="closed" value="true" />
+      <created>1753206148956</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL‎-00031" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753206148956</updated>
+    </task>
+    <task id="LOCAL‎-00032" summary="made labels the numbers and not the sentences">
+      <option name="closed" value="true" />
+      <created>1753284112572</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753284112572</updated>
+    </task>
+    <task id="LOCAL‎-00033" summary="made labels the numbers and not the sentences - table">
+      <option name="closed" value="true" />
+      <created>1753285111033</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL‎-00033" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753285111033</updated>
+    </task>
+    <task id="LOCAL‎-00034" summary="added show table option">
+      <option name="closed" value="true" />
+      <created>1753285675586</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL‎-00034" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753285675586</updated>
+    </task>
+    <task id="LOCAL‎-00035" summary="added         if show_distance_table or show_bars:">
+      <option name="closed" value="true" />
+      <created>1753285801782</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL‎-00035" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753285801782</updated>
+    </task>
+    <task id="LOCAL‎-00036" summary="fixed small bug">
+      <option name="closed" value="true" />
+      <created>1753285876867</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL‎-00036" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753285876867</updated>
+    </task>
+    <task id="LOCAL‎-00037" summary="correct distances">
+      <option name="closed" value="true" />
+      <created>1753293066393</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL‎-00037" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753293066393</updated>
+    </task>
+    <task id="LOCAL‎-00038" summary="removed e5 from embeddings options (requires token)">
+      <option name="closed" value="true" />
+      <created>1753297348279</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL‎-00038" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753297348279</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added selectbox and button" />
-    <MESSAGE value="changed many things" />
-    <MESSAGE value="added setup.py" />
-    <MESSAGE value="something inside the idea files - not sure what that is" />
-    <MESSAGE value="added a README file" />
-    <MESSAGE value="added *.egg-info/ to gitignore" />
-    <MESSAGE value="made app use our distance method" />
-    <MESSAGE value="workspace" />
-    <MESSAGE value="deleted not relevant files" />
     <MESSAGE value="changed visualization.py from 2 vecs to a list" />
     <MESSAGE value="added calculate_distance_list" />
     <MESSAGE value="changes interface to receive a list of sentences" />
@@ -349,7 +492,22 @@
     <MESSAGE value="added pandas to requirements" />
     <MESSAGE value="added idea to gitignore" />
     <MESSAGE value="improved api" />
+    <MESSAGE value="added a base class" />
+    <MESSAGE value="added delete button" />
+    <MESSAGE value="added spider plot" />
+    <MESSAGE value="merge attempt" />
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="added the option to choose main sentence in bars" />
+    <MESSAGE value="added caption to visualization" />
     <MESSAGE value="nothing" />
-    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
+    <MESSAGE value="added info" />
+    <MESSAGE value="made labels the numbers and not the sentences" />
+    <MESSAGE value="made labels the numbers and not the sentences - table" />
+    <MESSAGE value="added show table option" />
+    <MESSAGE value="added         if show_distance_table or show_bars:" />
+    <MESSAGE value="fixed small bug" />
+    <MESSAGE value="correct distances" />
+    <MESSAGE value="removed e5 from embeddings options (requires token)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed e5 from embeddings options (requires token)" />
   </component>
 </project>

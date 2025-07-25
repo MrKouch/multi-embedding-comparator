@@ -21,13 +21,14 @@ def calculate_distance(text1, text2, model_name="all-MiniLM-L6-v2", metric="cosi
 
 EMBEDDING_CLASSES = {
     "HFEmbeddingModel": HFEmbeddingModel,
+    # "GeminiEmbeddingModel": GeminiEmbeddingModel,
     # "OpenAIEmbeddingModel": OpenAIEmbeddingModel,
     # "VertexAIEmbeddingModel": VertexAIEmbeddingModel,
     # Add others here
 }
 
 
-def encode_text_list(text_list, embedding_class: str, model_id: str):
+def encode_text_list(text_list, embedding_class="HFEmbeddingModel", model_id="all-MiniLM-L6-v2"):
     """
     Args:
         text_list (List[str]): Sentences to embed.

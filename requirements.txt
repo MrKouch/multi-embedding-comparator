@@ -1,13 +1,13 @@
-streamlit~=1.46.1
-numpy~=1.26.0
-torch~=2.7.1
+streamlit
+numpy
+torch
 pandas
 streamlit
 fastapi
 pydantic
 sentence_transformers
-<<<<<<< HEAD
 plotly
-=======
-plotly
->>>>>>> 7fc58f2 (check changes from virtual machine)
+setuptools
+requests
+scikit-learn
+langchain
