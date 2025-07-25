@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="fixed small bug">
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="removed e5 from embeddings options (requires token)">
+      <change afterPath="$PROJECT_DIR$/openai_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding_distances/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Altar/uni_assingments/Embeddings Demo Project/multi-embedding-comparator"
+    "last_opened_file_path": "C:/Users/Altar/uni_assingments/Embeddings Demo Project/work-with-OTT-QA"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -461,12 +463,26 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753285876867</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL‎-00037" summary="correct distances">
+      <option name="closed" value="true" />
+      <created>1753293066393</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL‎-00037" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753293066393</updated>
+    </task>
+    <task id="LOCAL‎-00038" summary="removed e5 from embeddings options (requires token)">
+      <option name="closed" value="true" />
+      <created>1753297348279</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL‎-00038" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753297348279</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workspace" />
-    <MESSAGE value="deleted not relevant files" />
     <MESSAGE value="changed visualization.py from 2 vecs to a list" />
     <MESSAGE value="added calculate_distance_list" />
     <MESSAGE value="changes interface to receive a list of sentences" />
@@ -490,6 +506,8 @@
     <MESSAGE value="added show table option" />
     <MESSAGE value="added         if show_distance_table or show_bars:" />
     <MESSAGE value="fixed small bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed small bug" />
+    <MESSAGE value="correct distances" />
+    <MESSAGE value="removed e5 from embeddings options (requires token)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed e5 from embeddings options (requires token)" />
   </component>
 </project>

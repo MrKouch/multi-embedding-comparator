@@ -28,7 +28,7 @@ EMBEDDING_CLASSES = {
 }
 
 
-def encode_text_list(text_list, embedding_class: str, model_id: str):
+def encode_text_list(text_list, embedding_class="HFEmbeddingModel", model_id="all-MiniLM-L6-v2"):
     """
     Args:
         text_list (List[str]): Sentences to embed.

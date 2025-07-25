@@ -1,9 +1,9 @@
 import streamlit as st
 from embedding_distances.distance_metrics import DistanceMetrics
 import embedding_distances.interface as interface
-from visualization import Visualizations
+from embedding_distances.visualization import Visualizations
 import pandas as pd
-import visualization
+from embedding_distances import visualization
 
 st.title("Text similarities")
 
@@ -112,12 +112,18 @@ if st.button("Run"):
         tables.append(distance_table)
         # Only show plot if checkbox is checked
         if show_plot:
-            # fig = viz.plot_embeddings_2d(list(embeddings[1]), st.session_state.sentences)
-            # st.plotly_chart(fig)
+
             fig = visualization.plot_embeddings_2d_with_distances(embedding, labels,
                                                                   highlight_index=selected_index,
                                                                   hover_texts=st.session_state.sentences)
             st.plotly_chart(fig)
+            # clicked_point = plotly_events(fig, click_event=True, select_event=False, hover_event=False,
+            #                               key=embedding_option)
+            # if clicked_point:
+            #     selected_index = int(clicked_point[0]['pointIndex'])
+            #     st.session_state.selected_index = selected_index
+            #     st.success(f"Selected sentence {selected_index + 1} as reference.")
+
     if show_bars:
         fig = viz.bars_graph(distance_tables=tables, embedding_names=embedding_options,
                              text_list=labels, anchor_index=selected_index)
