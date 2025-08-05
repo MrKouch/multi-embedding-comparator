@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="removed e5 from embeddings options (requires token)">
-      <change afterPath="$PROJECT_DIR$/openai_api.py" afterDir="false" />
+    <list default="true" id="26eee37b-f731-4577-a375-0e870614d478" name="Changes" comment="added visualization to the library">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embedding_distances/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/embedding_distances/interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +34,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Altar/uni_assingments/Embeddings Demo Project/work-with-OTT-QA"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Altar/uni_assingments/Embeddings Demo Project/work-with-OTT-QA&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Altar\uni_assingments\Embeddings Demo Project\multi-embedding-comparator" />
@@ -53,7 +50,7 @@
       <recent name="C:\Users\Altar\uni_assingments\Embeddings Demo Project\multi-embedding-comparator\embedding_distances" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="multi-embedding-comparator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +98,9 @@
       <module name="multi-embedding-comparator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/embedding_distances" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -479,11 +479,18 @@
       <option name="project" value="LOCAL‎" />
       <updated>1753297348279</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎-00039" summary="added visualization to the library">
+      <option name="closed" value="true" />
+      <created>1753452271327</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL‎-00039" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1753452271327</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed visualization.py from 2 vecs to a list" />
     <MESSAGE value="added calculate_distance_list" />
     <MESSAGE value="changes interface to receive a list of sentences" />
     <MESSAGE value="random" />
@@ -508,6 +515,7 @@
     <MESSAGE value="fixed small bug" />
     <MESSAGE value="correct distances" />
     <MESSAGE value="removed e5 from embeddings options (requires token)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed e5 from embeddings options (requires token)" />
+    <MESSAGE value="added visualization to the library" />
+    <option name="LAST_COMMIT_MESSAGE" value="added visualization to the library" />
   </component>
 </project>
